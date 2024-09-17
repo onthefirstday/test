@@ -3,3 +3,4 @@ pandas
 numpy
 pickle
 requests
+streamlit==1.26.0

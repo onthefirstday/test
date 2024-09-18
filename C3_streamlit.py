@@ -1,14 +1,14 @@
 import pandas as pd
-import numpy as np
+# import numpy as np
 import requests 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import geopandas as gpd
-import json
+# import json
 from shapely.geometry import Point
 import folium
-from folium.plugins import TimestampedGeoJson
+# from folium.plugins import TimestampedGeoJson
 import streamlit as st
-import webbrowser
+# import webbrowser
 from streamlit_folium import st_folium
 
 
@@ -22,6 +22,10 @@ def laadpaal_data():
     return pd.read_csv('laadpaaldata.csv')
     
 # laadpaal_data.describe()
+
+@st.cache_data
+def map_request():
+    return requests.get('https://maps.amsterdam.nl/open_geodata/geojson_lnglat.php?KAARTLAAG=INDELING_STADSDEEL&THEMA=gebiedsindeling')
 
 @st.cache_data
 def df_creation():
@@ -41,7 +45,7 @@ def df_creation():
 
     Laadpalen['geometry'] = Laadpalen.apply(lambda x: Point((x['AddressInfo.Longitude'], x['AddressInfo.Latitude'])),axis = 1)
     Laadpalen_geo = gpd.GeoDataFrame(Laadpalen, crs='EPSG:4326')
-    mapp = gpd.read_file('mapdata.json')
+    mapp = map_request()
     return gpd.sjoin(mapp, Laadpalen_geo, predicate='contains')
 
 AMS_laadpalen = df_creation().reset_index(drop=True)

@@ -3,7 +3,7 @@ import pandas as pd
 import requests 
 # import matplotlib.pyplot as plt
 import geopandas as gpd
-# import json
+import json
 from shapely.geometry import Point
 import folium
 # from folium.plugins import TimestampedGeoJson
@@ -25,8 +25,9 @@ def laadpaal_data():
 
 @st.cache_data
 def map_request():
-    return requests.get('https://maps.amsterdam.nl/open_geodata/geojson_lnglat.php?KAARTLAAG=INDELING_STADSDEEL&THEMA=gebiedsindeling').json()
-
+    response = requests.get('https://maps.amsterdam.nl/open_geodata/geojson_lnglat.php?KAARTLAAG=INDELING_STADSDEEL&THEMA=gebiedsindeling').json()
+    return gpd.GeoDataFrame.from_features(response['features'])   
+    
 @st.cache_data
 def df_creation():
     response = requests.get("https://api.openchargemap.io/v3/poi/?output=json&countrycode=NL&latitude=52.378&longitude=4.9&distance=25&distanceunit=km&maxresults=1000&compact=true&verbose=false&key=2ef595ab-9648-4d99-893b-f70fa0c47eeb")

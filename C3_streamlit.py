@@ -25,7 +25,7 @@ def laadpaal_data():
 
 @st.cache_data
 def map_request():
-    return requests.get('https://maps.amsterdam.nl/open_geodata/geojson_lnglat.php?KAARTLAAG=INDELING_STADSDEEL&THEMA=gebiedsindeling')
+    return requests.get('https://maps.amsterdam.nl/open_geodata/geojson_lnglat.php?KAARTLAAG=INDELING_STADSDEEL&THEMA=gebiedsindeling').json()
 
 @st.cache_data
 def df_creation():

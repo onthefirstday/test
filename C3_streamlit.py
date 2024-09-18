@@ -26,7 +26,7 @@ def laadpaal_data():
 @st.cache_data
 def map_request():
     response = requests.get('https://maps.amsterdam.nl/open_geodata/geojson_lnglat.php?KAARTLAAG=INDELING_STADSDEEL&THEMA=gebiedsindeling').json()
-    return gpd.GeoDataFrame.from_features(response['features'])   
+    return gpd.GeoDataFrame.from_features(response['features'], crs='EPSG:4326')   
     
 @st.cache_data
 def df_creation():

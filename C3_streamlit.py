@@ -204,18 +204,18 @@ m = folium.Map(
     zoom_start=12,
 )
 
-folium.plugins.TimestampedGeoJson(
-    {"type": "FeatureCollection", "features": features2},
-    period="P1M",
-    add_last_point=True,
-    auto_play=False,
-    loop=False,
-    max_speed=0.5,
-    loop_button=True,
-#     date_options="YYYY/MM/DD",
-    date_options="DD/MM/YYYY",
-    time_slider_drag_update=True,
-).add_to(m)
+# folium.plugins.TimestampedGeoJson(
+#     {"type": "FeatureCollection", "features": features2},
+#     period="P1M",
+#     add_last_point=True,
+#     auto_play=False,
+#     loop=False,
+#     max_speed=0.5,
+#     loop_button=True,
+# #     date_options="YYYY/MM/DD",
+#     date_options="DD/MM/YYYY",
+#     time_slider_drag_update=True,
+# ).add_to(m)
 
 st_map = st_folium(m, width=1500, height=450)
 

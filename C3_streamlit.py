@@ -6,7 +6,7 @@ import geopandas as gpd
 import json
 from shapely.geometry import Point
 import folium
-# from folium.plugins import TimestampedGeoJson
+from folium.plugins import TimestampedGeoJson
 import streamlit as st
 # import webbrowser
 from streamlit_folium import st_folium

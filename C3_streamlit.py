@@ -3,10 +3,10 @@ import pandas as pd
 import requests 
 # import matplotlib.pyplot as plt
 import geopandas as gpd
-import json
+# import json
 from shapely.geometry import Point
 import folium
-from folium.plugins import TimestampedGeoJson
+# from folium.plugins import TimestampedGeoJson
 import streamlit as st
 # import webbrowser
 from streamlit_folium import st_folium

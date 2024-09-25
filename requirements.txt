@@ -4,3 +4,4 @@ streamlit
 geopandas
 folium
 streamlit_folium
+sklearn 

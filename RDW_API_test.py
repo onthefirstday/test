@@ -13,7 +13,7 @@ client = Socrata(DOMAIN, None)
 # Define specific columns to fetch
 options = st.multiselect(
     "Which columns do you want to load?",
-    ["kenteken, brandstof_omschrijving, co2_uitstoot_gecombineerd"],
+    ['kenteken', 'brandstof_omschrijving', 'co2_uitstoot_gecombineerd']
 )
 
 # Fetch data with selected columns

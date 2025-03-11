@@ -16,11 +16,11 @@ options = st.multiselect(
     ['kenteken', 'brandstof_omschrijving', 'co2_uitstoot_gecombineerd']
 )
 
+st.write(options)
+
 # Fetch data with selected columns
 results = client.get(DATASET_ID_fuel, select=options, limit=10000)
 
 df_fuel = pd.DataFrame.from_records(results)
 
-df_fuel.head()
-
-
+st.write(df_fuel)

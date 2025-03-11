@@ -18,6 +18,10 @@ options = st.multiselect(
 
 st.write(options)
 
+columns = ','.join(options)
+
+st.write(columns)
+
 # Fetch data with selected columns
 results = client.get(DATASET_ID_fuel, select=options, limit=10000)
 

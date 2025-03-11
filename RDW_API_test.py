@@ -23,7 +23,7 @@ columns = ','.join(options)
 st.write(columns)
 
 # Fetch data with selected columns
-results = client.get(DATASET_ID_fuel, select=options, limit=10000)
+results = client.get(DATASET_ID_fuel, select=columns, limit=10000)
 
 df_fuel = pd.DataFrame.from_records(results)
 
